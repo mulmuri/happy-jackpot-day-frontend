@@ -1,0 +1,9 @@
+export {default as Introducion}           from './Introduction/Main';
+export {default as Mileage}               from './Mileage/Main';
+export {default as MileageRequest}        from './MileageRequest/Main';
+export {default as MileageRequestSuccess} from './MileageRequestSuccess/Main';
+export {default as MileageWeek}           from './MileageWeek/Main';
+export {default as Profile}               from './Profile/Main';
+export {default as Register}              from './Register/Main';
+export {default as RegisterSuccess}       from './RegisterSuccess/Main';
+export {default as Friend}                from './Friend/Main';
