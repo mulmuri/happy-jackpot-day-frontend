@@ -3,7 +3,6 @@ import { AxiosError } from "axios";
 import { createContext, useState } from "react"
 import axiosAPI from "../axiosapi";
 import {personalInfoInterface, registerManagerInterface} from "../model/userInterface";
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -28,8 +27,6 @@ const ManagerProvider = ({children}: ChildrenProps) => {
     const [userList, setUserList] = useState<personalInfoInterface[]>([]);
 
 
-    const navigate = useNavigate();
-
     const fetchRegisterList = async () => {
         try {
             const response = await axiosAPI({
@@ -41,7 +38,7 @@ const ManagerProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 
@@ -60,7 +57,7 @@ const ManagerProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 
@@ -79,7 +76,7 @@ const ManagerProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 
@@ -94,7 +91,7 @@ const ManagerProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
     

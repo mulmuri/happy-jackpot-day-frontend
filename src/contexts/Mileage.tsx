@@ -3,7 +3,6 @@ import { AxiosError } from "axios";
 import axiosAPI from "../axiosapi";
 import { mileageInterface, defaultMileage, weeklyMileageInterface, defaultWeeklyMileage, friendsCountInterface, friendsInfoInterface, } from "../model/mileageInterface"
 import { ChildrenProps } from "../model/viewInterface"
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -35,8 +34,6 @@ const MileageProvider = ({children}: ChildrenProps) => {
     const [friendsCount, setFriendsCount] = useState<friendsCountInterface[]>([]);
     const [friendsInfo, setFriendsInfo] = useState<friendsInfoInterface[]>([]);
 
-    const navigate = useNavigate();
-
     const fetchMileage = async () => {
         try {
             const response = await axiosAPI({
@@ -48,7 +45,7 @@ const MileageProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     };
 
@@ -63,7 +60,7 @@ const MileageProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     };
 
@@ -78,7 +75,7 @@ const MileageProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     };
 
@@ -93,7 +90,7 @@ const MileageProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     };
 
@@ -111,7 +108,7 @@ const MileageProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 
@@ -129,7 +126,7 @@ const MileageProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 

@@ -56,7 +56,7 @@ const MemberProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     };
 
@@ -74,7 +74,7 @@ const MemberProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     };
 

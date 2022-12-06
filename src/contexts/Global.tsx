@@ -1,10 +1,9 @@
 import { ChildrenProps, defaultError, errorInterface } from "../model/viewInterface"
 import { AxiosError } from "axios";
-import React, { createContext, useEffect, useState } from "react"
+import React, { createContext, useState } from "react"
 import axiosAPI from "../axiosapi";
 import { authInterface, defaultAuth, defaultUserStatus, userInterface, userStatusInterface } from "../model/userInterface";
 import { useNavigate } from "react-router-dom";
-
 
 
 
@@ -73,7 +72,7 @@ const GlobalProvider = ({children}: ChildrenProps) => {
                     message: "ID나 비밀번호가 올바르지 않습니다."
                 });
             } else {
-                navigate("/error/"+response.status);
+                console.log(response.status)
             }
         }
     }
@@ -93,7 +92,7 @@ const GlobalProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 

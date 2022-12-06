@@ -38,6 +38,7 @@ const RegisterProvider = ({children}: ChildrenProps) => {
     const [InfoError, setInfoError] = useState<errorInterface>(defaultError());
 
     const handleRegisterChange = (prop: keyof authInterface) => (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(registerValues)
         setRegisterValues({ ...registerValues, [prop]: event.target.value });
     };
     
@@ -62,7 +63,7 @@ const RegisterProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 
@@ -115,7 +116,6 @@ const RegisterProvider = ({children}: ChildrenProps) => {
             })
         }
     }
-
 
     return (
         <RegisterContext.Provider value={{

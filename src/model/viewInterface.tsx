@@ -58,6 +58,7 @@ export interface formInterface {
     formType: string;
     label: string;
     error: errorInterface;
+    value: string;
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleCheck?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }

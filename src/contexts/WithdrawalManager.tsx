@@ -3,7 +3,6 @@ import { AxiosError } from "axios";
 import { createContext, useState } from "react"
 import axiosAPI from "../axiosapi";
 import { withdrawalInterface } from "../model/mileageInterface";
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -24,7 +23,6 @@ const WithdrawalManagerContext = createContext({
 const WithdrawalManagerProvider = ({children}: ChildrenProps) => {
     const [withdrawalList, setMileageReqList] = useState<withdrawalInterface[]>([]);
 
-    const navigate = useNavigate();
 
     const fetchWithdrawalList = async () => {
         try {
@@ -37,7 +35,7 @@ const WithdrawalManagerProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 
@@ -56,7 +54,7 @@ const WithdrawalManagerProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 
@@ -75,7 +73,7 @@ const WithdrawalManagerProvider = ({children}: ChildrenProps) => {
         } catch (error) {
             const { response } = error as AxiosError;
             if (typeof response === 'undefined') throw (error);
-            navigate("/error/"+response.status);
+            console.log(response.status)
         }
     }
 

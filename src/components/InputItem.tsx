@@ -4,7 +4,7 @@ import { formTheme } from '../theme/formTheme';
 
 
 
-const InputItem = ({formType, label, handleChange, handleCheck, error}: formInterface) => {
+const InputItem = ({formType, label, handleChange, handleCheck, error, value}: formInterface) => {
 
     return (
         <ThemeProvider theme={formTheme}>
@@ -14,6 +14,8 @@ const InputItem = ({formType, label, handleChange, handleCheck, error}: formInte
             <Input
               id={formType+"-section"}
               onChange={handleChange}
+              value={value}
+              defaultValue={value}
               onBlur={handleCheck}
             />
             {error.isError && error.target === formType &&
