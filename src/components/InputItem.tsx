@@ -13,8 +13,8 @@ const InputItem = ({formType, label, handleChange, handleCheck, error, value}: f
             <InputLabel htmlFor="standard-adornment-password">{label}</InputLabel>
             <Input
               id={formType+"-section"}
+              autoComplete="off"
               onChange={handleChange}
-              value={value}
               defaultValue={value}
               onBlur={handleCheck}
             />

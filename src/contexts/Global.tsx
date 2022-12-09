@@ -38,8 +38,6 @@ const GlobalProvider = ({children}: ChildrenProps) => {
 
     const [user, setUser] = useState<userStatusInterface>(defaultUserStatus());
 
-
-
     
     const requestSignin = async () => {
         try {

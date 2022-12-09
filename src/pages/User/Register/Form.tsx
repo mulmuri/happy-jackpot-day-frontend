@@ -1,12 +1,14 @@
 import { Fragment, useContext } from "react"
 import { InputItem, InputItemPW } from "../../../components"
 import RegisterContext from "../../../contexts/Register"
+import { defaultError } from "../../../model/viewInterface";
+import { addHypen } from "../../../util/formatter";
 
 
 
 export const IdForm = () => {
     const Register = useContext(RegisterContext);
-    const {IdError, handleRegisterChange, IdChecker, registerValues } = {...Register.state, ...Register.actions};
+    const {IdError, handleRegisterChange, registerValues, IdCheckerAdvance } = {...Register.state, ...Register.actions};
 
     return (
       <Fragment>
@@ -24,7 +26,7 @@ export const IdForm = () => {
           value={registerValues.ID}
           error={IdError}
           handleChange={handleRegisterChange("ID")}
-          handleCheck={IdChecker}
+          handleCheck={IdCheckerAdvance}
         />
      </Fragment>
     )
@@ -33,6 +35,7 @@ export const IdForm = () => {
 export const PwForm = () => {
     const Register = useContext(RegisterContext);
     const {PwError, handleRegisterChange, PwChecker, registerValues } = {...Register.state, ...Register.actions};
+    if (registerValues.PWContrast === undefined) registerValues.PWContrast = "";
 
     return (
       <Fragment>
@@ -46,7 +49,7 @@ export const PwForm = () => {
         <InputItemPW
           formType="PWContrast"
           label="비밀번호 재입력"
-          value=""
+          value={registerValues.PWContrast}
           error={PwError}
           handleChange={handleRegisterChange("PWContrast")}
           handleCheck={PwChecker}
@@ -57,7 +60,10 @@ export const PwForm = () => {
 
 export const InfoForm = () => {
     const Register = useContext(RegisterContext);
-    const {InfoError, handleRegisterChange, emailChecker, phoneNumberChecker, registerValues } = {...Register.state, ...Register.actions};
+    const {
+        emailError, emailChecker,
+        phoneError, phoneNumberChecker,
+        handleRegisterChange, registerValues } = {...Register.state, ...Register.actions};
 
     return (
       <Fragment>
@@ -65,7 +71,7 @@ export const InfoForm = () => {
           formType="phoneNumber"
           label="핸드폰 번호"
           value={registerValues.phoneNumber}
-          error={InfoError}
+          error={phoneError}
           handleChange={handleRegisterChange("phoneNumber")}
           handleCheck={phoneNumberChecker}
         />
@@ -73,22 +79,22 @@ export const InfoForm = () => {
           formType="email"
           label="이메일"
           value={registerValues.email}
-          error={InfoError}
-          handleChange={handleRegisterChange("ID")}
+          error={emailError}
+          handleChange={handleRegisterChange("email")}
           handleCheck={emailChecker}
         />
         <InputItem
           formType="accountBankName"
           label="계좌 은행"
           value={registerValues.accountBankName}
-          error={InfoError}
+          error={defaultError()}
           handleChange={handleRegisterChange("accountBankName")}
         />
         <InputItem
           formType="accountNumber"
           label="계좌 번호"
           value={registerValues.accountNumber}
-          error={InfoError}
+          error={defaultError()}
           handleChange={handleRegisterChange("accountNumber")}
         />
      </Fragment>

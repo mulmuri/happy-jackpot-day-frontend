@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { FormControl, Input, InputAdornment, FormHelperText } from "@mui/material";
-import addComma from '../../../util/addComma';
+import { addComma } from '../../../util/formatter';
 import MileageRequestContext from '../../../contexts/MileageRequest';
 import MileageContext from '../../../contexts/Mileage';
 

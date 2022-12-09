@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { Box, Button, ButtonGroup, Container, Typography } from '@mui/material';
 import { PageItem } from '../../../components';
 import Aos from "aos";
-import addComma from '../../../util/addComma';
+import { addComma } from '../../../util/formatter';
 import GlobalContext from '../../../contexts/Global';
 import MileageContext from '../../../contexts/Mileage';
 import { mileageInterface } from '../../../model/mileageInterface';

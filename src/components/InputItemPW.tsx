@@ -7,7 +7,7 @@ import { formTheme } from '../theme/formTheme';
 
 
 
-const InputItemPW = ({formType, label, handleChange, error}: formInterface) => {
+const InputItemPW = ({formType, label, handleChange, error, value}: formInterface) => {
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const handleClickShowPassword = () => setShowPassword(!showPassword);
@@ -18,12 +18,14 @@ const InputItemPW = ({formType, label, handleChange, error}: formInterface) => {
 
     return (
         <ThemeProvider theme={formTheme}>
-      <FormControl variant="standard" color="primary"
+      <FormControl variant="standard" color="primary" error={error.isError}
         sx={{ m: 0, width: "80%" }}>
         <InputLabel htmlFor="standard-adornment-password">{label}</InputLabel>
         <Input
           id={formType+"-section"}
+          autoComplete="off"
           onChange={handleChange}
+          defaultValue={value}
           type={showPassword ? 'text' : 'password'}
           endAdornment={
             <InputAdornment position="end">
