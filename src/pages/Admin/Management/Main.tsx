@@ -12,31 +12,31 @@ const Main = () => {
         <PageTitleItem title="무엇을 하시겠습니까?"/>
         <FloatingButton
           animation="fade-up" duration={defaultTime.first}
-          path="/manager/mileage-request-status"
+          path="/admin/mileage-request-status"
           icon={<CurrencyExchangeIcon/>}>
           출금 요청 보기
         </FloatingButton>
         <FloatingButton
           animation="fade-up" duration={defaultTime.second}
-          path="/manager/mileage-update"
+          path="/admin/mileage-update"
           icon={<UpdateIcon/>}>
           마일리지 업데이트
         </FloatingButton>
         <FloatingButton
           animation="fade-up" duration={defaultTime.third}
-          path="/manager/user"
+          path="/admin/user"
           icon={<ManageAccountsIcon/>}>
           회원 관리하기
         </FloatingButton>
         <FloatingButton
           animation="fade-up" duration={defaultTime.third}
-          path="/manager/register-request-status"
+          path="/admin/register-request-status"
           icon={<GroupAddIcon/>}>
           회원가입 요청 보기
         </FloatingButton>
         <FloatingButton
           animation="fade-up" duration={defaultTime.fourth}
-          path="/register"
+          path="/admin/register"
           icon={<PersonAddIcon/>}>
           회원 가입
         </FloatingButton>

@@ -4,6 +4,6 @@ import styled from "styled-components";
 const TransparentButton = styled(Button)`
     width: 100px;
     height: 100px;
-    background-color: inherit;
+    background-color: "blue";
 `
 export default TransparentButton;

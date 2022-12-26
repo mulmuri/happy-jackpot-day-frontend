@@ -28,7 +28,7 @@ const WithdrawalManagerProvider = ({children}: ChildrenProps) => {
         try {
             const response = await axiosAPI({
                 method: "GET",
-                url: "/admin/account/mileage/withdrawal/requests"
+                url: "/admin/mileage/withdrawal/requests"
             });
             setMileageReqList(response.data)
 
@@ -43,7 +43,7 @@ const WithdrawalManagerProvider = ({children}: ChildrenProps) => {
         try {
             const response = await axiosAPI({
                 method: "POST",
-                url: "/admin/account/mileage/withdrawal/response",
+                url: "/admin/mileage/withdrawal/response",
                 params: {
                     accept: "true",
                     userid: userid
@@ -62,7 +62,7 @@ const WithdrawalManagerProvider = ({children}: ChildrenProps) => {
         try {
             const response = await axiosAPI({
                 method: "POST",
-                url: "/admin/account/mileage/withdrawal/response",
+                url: "/admin/mileage/withdrawal/response",
                 params: {
                     accept: "false",
                     userid: userid

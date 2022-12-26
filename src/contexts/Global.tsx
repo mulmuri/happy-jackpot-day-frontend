@@ -47,16 +47,25 @@ const GlobalProvider = ({children}: ChildrenProps) => {
                 data: authValues
             });
 
-            if (response.status === 200) {
-                setUser({
-                    name: "asdf",
-                    status: "Admin",
-                })
-                //setUser({
-                //    name: response.data.name,
-                //    status: response.data.status
-                //})
-                navigate("/mileage");
+            console.log(response.data)
+            const {name, status} = response.data;
+
+            setUser({
+                name: name,
+                status: status
+            })
+
+            switch (status) {
+
+            case "Admin":
+                navigate("/admin");
+                break;
+            case "User":
+                navigate("/user");
+                break;
+            case "Awater":
+                navigate("/signin/success");
+                break;
             }
 
         } catch (error) {
@@ -69,8 +78,6 @@ const GlobalProvider = ({children}: ChildrenProps) => {
                     target: "PW",
                     message: "ID나 비밀번호가 올바르지 않습니다."
                 });
-            } else {
-                console.log(response.status)
             }
         }
     }

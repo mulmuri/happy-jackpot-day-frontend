@@ -20,7 +20,6 @@ const SigninProps = () => {
     const Sign = useContext(GlobalContext);
     const { handleAuthChange, error, authValues } = {...Sign.state, ...Sign.actions};
 
-
     return (
         <PageFrame>
           <LogoSection logo="Main" color="success.main"/>

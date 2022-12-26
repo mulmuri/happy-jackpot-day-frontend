@@ -27,7 +27,7 @@ const MileageManagerProvider = ({children}: ChildrenProps) => {
         try {
             const response = await axiosAPI({
                 method: "POST",
-                url: "/admin/account/mileage/daily/extract"
+                url: "/admin/mileage/daily/extract"
             });
             setMileageUpdateList(response.data);
 
@@ -42,7 +42,7 @@ const MileageManagerProvider = ({children}: ChildrenProps) => {
         try {
             const response = await axiosAPI({
                 method: "POST",
-                url: "/admin/account/mileage/daily/execute",
+                url: "/admin/mileage/daily/execute",
                 data: mileageUpdateList
             });
             setMileageUpdateList(response.data);

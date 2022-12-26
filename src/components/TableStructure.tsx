@@ -7,10 +7,12 @@ const TableStructure = ({dataArray, instructions, headers, divider}: tableInfoIn
 
     return (
       <TableContainer>
-        <Table>
+     <Table>
           {headers && 
             <TableHead>
-              <TableRow>
+              <TableRow
+                style={{"whiteSpace": "nowrap"}}
+              >
                 {headers.map((header, idx) => {
                   return <TableCell key={idx+1} align={header.pos}>{header.col}</TableCell>
                 })}
@@ -25,6 +27,7 @@ const TableStructure = ({dataArray, instructions, headers, divider}: tableInfoIn
                   '&:last-child td, &:last-child th': { border: 0 },
                   '& > td, & > th': { p: 1, borderColor: (!divider) ? "transparent" : "gray"}
                 }}
+                style={{"whiteSpace": "nowrap"}}
               >
                 {instructions.map((instruction, idx) => {
                     return (idx === 0)

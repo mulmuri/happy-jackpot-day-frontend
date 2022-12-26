@@ -33,7 +33,8 @@ const ManagerProvider = ({children}: ChildrenProps) => {
                 method: "GET",
                 url: "/admin/account/registration/requests",
             });
-            setRegisterList(response.data)
+            //if (response.data !== undefined)
+                setRegisterList(response.data)
 
         } catch (error) {
             const { response } = error as AxiosError;
@@ -84,8 +85,9 @@ const ManagerProvider = ({children}: ChildrenProps) => {
         try {
             const response = await axiosAPI({
                 method: "GET",
-                url: "/admin/account/registration/requests",
+                url: "/admin/account/list",
             });
+            console.log(response.data)
             setUserList(response.data)
 
         } catch (error) {

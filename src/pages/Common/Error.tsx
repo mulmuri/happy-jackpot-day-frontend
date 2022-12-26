@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { FitButton, PageFrame, LogoSection, MessageItem } from '../../components';
 import { scriptInterface } from '../../model/viewInterface';
 
@@ -41,7 +41,7 @@ const ErrorStatus: ErrorStatusInterfaces =
 
 
 
-const ErrorPage = (status: number) => {
+const ErrorPage = (status: number, root: string) => {
 
     const navigate = useNavigate();
 
@@ -54,7 +54,7 @@ const ErrorPage = (status: number) => {
       <PageFrame>
         <LogoSection logo="Warning" color="warning.main"/>
         <MessageItem title={message.title} content={message.content}/>
-        <FitButton onClick={() => navigate("/")}>홈으로 돌아가기</FitButton>
+        <FitButton onClick={() => navigate(`${root}/`)}>홈으로 돌아가기</FitButton>
       </PageFrame>
     )
 }
@@ -72,9 +72,28 @@ export const getErrorStatus = (errorNo: number) => {
 }
 
 
-export const BadRequest = () => ErrorPage(404);
-export const Unauthorized = () => ErrorPage(401);
-export const Forbidden = () => ErrorPage(403);
-export const NotFound = () => ErrorPage(400);
-export const InternalServerError = () => ErrorPage(500);
-export const GatewayTimeout = () => ErrorPage(504);
+export const BadRequest          = ({root}: {root: string}) => ErrorPage(404, root);
+export const Unauthorized        = ({root}: {root: string}) => ErrorPage(401, root);
+export const Forbidden           = ({root}: {root: string}) => ErrorPage(403, root);
+export const NotFound            = ({root}: {root: string}) => ErrorPage(400, root);
+export const InternalServerError = ({root}: {root: string}) => ErrorPage(500, root);
+export const GatewayTimeout      = ({root}: {root: string}) => ErrorPage(504, root);
+
+
+
+const ErrorRouter = ({root}: {root?: string}) => {
+    if (root === undefined) root = "";
+
+    return (
+      <Routes>
+        <Route path="400" element={<NotFound            root={root}/>}/>
+        <Route path="404" element={<BadRequest          root={root}/>}/>
+        <Route path="401" element={<Unauthorized        root={root}/>}/>
+        <Route path="403" element={<Forbidden           root={root}/>}/>
+        <Route path="500" element={<InternalServerError root={root}/>}/>
+        <Route path="504" element={<GatewayTimeout      root={root}/>}/>
+      </Routes>
+    )
+}
+
+export default ErrorRouter

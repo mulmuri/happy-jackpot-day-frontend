@@ -1,4 +1,4 @@
-import { Box, ButtonGroup } from "@mui/material";
+import { Box, Button, ButtonGroup } from "@mui/material";
 import { useContext, useEffect } from "react";
 import { columnInterface } from "../../../model/viewInterface";
 import { registerManagerInterface } from "../../../model/userInterface";
@@ -14,9 +14,9 @@ const RegisterListTable = () => {
 
     const ActionButton = (userid: string) => {
         return (
-            <ButtonGroup>
-                <TransparentButton onClick={() => {acceptRegisterRequest(userid)}}>승락</TransparentButton>
-                <TransparentButton onClick={() => {rejectRegisterRequest(userid)}}>거절</TransparentButton>
+            <ButtonGroup variant="text" aria-label="text button group">
+                <Button onClick={() => {acceptRegisterRequest(userid)}}>승락</Button>
+                <Button onClick={() => {rejectRegisterRequest(userid)}}>거절</Button>
             </ButtonGroup>
         )
     }
@@ -34,6 +34,7 @@ const RegisterListTable = () => {
         {col: "accountBankName", pos: "right"},
         {col: "accountNumber",   pos: "right"},
         {col: "recommender",     pos: "right"},
+        {col: "component",       pos: "right"}
     ];
 
     const headers: columnInterface[] = [
@@ -44,6 +45,7 @@ const RegisterListTable = () => {
         {col: "은행",    pos: "right"},
         {col: "계좌번호", pos: "right"},
         {col: "추천인",  pos: "right"},
+        {col: "선택",    pos: "center"}
     ];
 
     useEffect(() => {

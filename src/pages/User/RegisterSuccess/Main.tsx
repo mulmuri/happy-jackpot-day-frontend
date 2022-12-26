@@ -17,7 +17,7 @@ const RegisterSuccess = () => {
         <PageFrame>
             <LogoSection logo="Success" color="success.main"/>
             <MessageItem title={message.title} content={message.content}/>
-            <FitButton onClick={() => navigate("/")}>홈으로 돌아가기</FitButton>
+            <FitButton onClick={() => navigate("../..")}>홈으로 돌아가기</FitButton>
         </PageFrame>
     )
 };

@@ -66,7 +66,7 @@ const RegisterProvider = ({children}: ChildrenProps) => {
             });
 
             if (response.status === 200) {
-                navigate("/mileage");
+                navigate("./success");
             }
 
         } catch (error) {
